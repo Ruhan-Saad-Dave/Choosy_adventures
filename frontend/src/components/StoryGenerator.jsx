@@ -36,7 +36,7 @@ function StoryGenerator() {
 
         try {
             const response = await axios.post(`${API_BASE_URL}/stories/create`, {theme})
-            const {jobId, status} = response.data 
+            const {job_id: jobId, status} = response.data 
             setJobId(jobId)
             setJobStatus(status)
 
@@ -60,7 +60,7 @@ function StoryGenerator() {
                 setLoading(false)
             }
         } catch (e) {
-            if (e.response?.statu !== 404) {
+            if (e.response?.status !== 404) {
                 setError(`Failed to check story status: ${e.message}`)
                 setLoading(false)
             }

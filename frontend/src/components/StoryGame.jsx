@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 
-function StoryGame({story, noNewStory}) {
+function StoryGame({story, onNewStory}) {
     const [currentNodeId, setCurrentNodeId] = useState(null);
     const [currentNode, setCurrentNode] = useState(null);
     const [options, setOptions] = useState([]);
@@ -57,12 +57,12 @@ function StoryGame({story, noNewStory}) {
                 <div className="story-options">
                     <h3>What will you do?</h3>
                     <div className="options-list">
-                        {options.map((options, index) => {
+                        {options.map((option, index) => {
                             return <button 
                             key={index}
-                            onClick={() => chooseOption(options.node_id)}
+                            onClick={() => chooseOption(option.node_id)}
                             className="option-btn">
-                                {options.text}
+                                {option.text}
                             </button>
                         })}
                     </div>

@@ -1,0 +1,5 @@
+npm create vite@latest frontend -- --template react   # creates and sets up frontend
+
+npm install  #in frontend
+npm install axios  # simplify sending requests
+npm install react-router-dom # URL route to see different stories

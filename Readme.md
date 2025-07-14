@@ -6,7 +6,7 @@ Welcome to Choice Adventures, an interactive story generator where you can creat
 
 You can access the live, deployed version of Choice Adventures here:
 
-[**https://choice-adventures.vercel.app/**](https://choice-adventures.vercel.app/)
+[**https://choosy-adventures.vercel.app/**](https://choosy-adventures.vercel.app/)
 
 ## Features
 
@@ -36,12 +36,14 @@ Before running the applications, you need to set up the necessary environment va
 In the `backend` directory, create a `.env` file and add the following variables. This file is crucial for connecting to the database and enabling the AI story generation.
 
 ```
-DATABASE_URL="sqlite:///./database.db"
-GOOGLE_API_KEY="YOUR_GOOGLE_API_KEY"
-```
+DATABASE_URL = sqlite:///./databse.db 
 
--   `DATABASE_URL`: The connection string for your database. The default is a local SQLite database.
--   `GOOGLE_API_KEY`: Your API key for the Google AI service, which is required for story generation.
+API_PREFIX = /api 
+DEBUG = True 
+
+ALLOWED_ORIGINS = https://localhost:3000, https://localhost:5173
+GOOGLE_API_KEY = <your_gemini_api_key>
+```
 
 #### Frontend
 
@@ -51,7 +53,6 @@ In the `frontend` directory, create a `.env` file to specify the backend API URL
 VITE_API_URL="http://localhost:8000"
 ```
 
--   `VITE_API_URL`: The URL of the backend API. For local development, this should point to your local backend server.
 
 ### 1. Backend Setup and Run
 
@@ -59,8 +60,9 @@ Navigate to the `backend` directory and follow its instructions:
 
 ```bash
 cd backend
-uv pip install -r requirements.txt
-uvicorn main:app --reload
+pip install uv
+uv sync
+uv run main.py
 ```
 
 The backend API will be running at `http://localhost:8000`. You can access the API documentation at `http://localhost:8000/docs`.

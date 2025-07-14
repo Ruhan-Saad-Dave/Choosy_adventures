@@ -8,10 +8,10 @@ WORKDIR /app
 RUN pip install uv
 
 # Copy the requirements file into the container at /app
-COPY ./requirements.txt /app/requirements.txt
+COPY ./pyproject.toml ./uv.lock ./requirements.txt ./python-version
 
 # Install any needed packages specified in requirements.txt using uv
-RUN uv pip install --no-cache -r requirements.txt
+RUN uv sync
 
 # Copy the rest of the application's code into the container
 COPY . /app

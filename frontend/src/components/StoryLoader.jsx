@@ -1,9 +1,8 @@
 import {useState, useEffect} from 'react';
 import {useParams, useNavigate} from 'react-router-dom';
-import axios from 'axios';
 import LoadingStatus from "./LoadingStatus.jsx";
 import StoryGame from "./StoryGame.jsx"
-import {API_BASE_URL} from "../utils.js";
+import {apiClient} from "../api.js";
 
 function StoryLoader() {
     const {id} = useParams();
@@ -21,7 +20,7 @@ function StoryLoader() {
         setError(null)
 
         try {
-            const response = await axios.get(`${API_BASE_URL}/stories/${storyId}/complete`);
+            const response = await apiClient.get(`/stories/${storyId}/complete`);
             setStory(response.data)
             setLoading(false)
         } catch (err) {

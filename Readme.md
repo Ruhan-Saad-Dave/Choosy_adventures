@@ -2,6 +2,12 @@
 
 Welcome to Choice Adventures, an interactive story generator where you can create and play unique adventure stories! This project consists of a backend API (built with FastAPI) that generates the stories using AI, and a frontend web application (built with React) where you can experience these adventures.
 
+## Deployed Application
+
+You can access the live, deployed version of Choice Adventures here:
+
+[**https://choice-adventures.vercel.app/**](https://choice-adventures.vercel.app/)
+
 ## Features
 
 -   **Generate Stories**: Simply provide a theme, and our AI will craft a brand new interactive story for you.
@@ -20,6 +26,32 @@ Before you begin, ensure you have the following installed on your system:
 -   **Node.js (LTS version)**: For the frontend.
 -   **npm** (Node Package Manager) or **yarn**: Comes with Node.js.
 -   **uv**: A fast Python package installer and resolver. You can install it using pip: `pip install uv`
+
+### Configuration
+
+Before running the applications, you need to set up the necessary environment variables.
+
+#### Backend
+
+In the `backend` directory, create a `.env` file and add the following variables. This file is crucial for connecting to the database and enabling the AI story generation.
+
+```
+DATABASE_URL="sqlite:///./database.db"
+GOOGLE_API_KEY="YOUR_GOOGLE_API_KEY"
+```
+
+-   `DATABASE_URL`: The connection string for your database. The default is a local SQLite database.
+-   `GOOGLE_API_KEY`: Your API key for the Google AI service, which is required for story generation.
+
+#### Frontend
+
+In the `frontend` directory, create a `.env` file to specify the backend API URL.
+
+```
+VITE_API_URL="http://localhost:8000"
+```
+
+-   `VITE_API_URL`: The URL of the backend API. For local development, this should point to your local backend server.
 
 ### 1. Backend Setup and Run
 
